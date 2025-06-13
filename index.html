@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DIKA MARKET - Solusi Hosting Bot & Script Digital Terpercaya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+        /* Dark Theme Colors */
+        --primary-dark-bg: #0C0F1B; /* Very deep dark blue/purple for main background */
+        --secondary-dark-bg: #1A1A2E; /* Slightly lighter dark blue for sections */
+        --accent-blue: #0F3460; /* Darker blue for cards/elements */
+        --vibrant-blue: #007bff; /* Still a strong blue for highlights */
+        --vibrant-orange: #ff6b00; /* Main accent for CTA/highlights */
+        --text-light: #E0E0E0; /* Light grey for primary text */
+        --text-muted: #A0A0A0; /* Muted grey for secondary text */
+        --white: #ffffff;
+
+        /* Shadows & Glows */
+        --shadow-dark-1: rgba(0,0,0,0.3);
+        --shadow-dark-2: rgba(0,0,0,0.6);
+        --glow-effect: 0 0 15px rgba(0, 123, 255, 0.5), 0 0 30px rgba(0, 123, 255, 0.3); /* Blue glow */
+        --orange-glow: 0 0 15px rgba(255, 107, 0, 0.7), 0 0 30px rgba(255, 107, 0, 0.4); /* Orange glow */
+
+        /* Animation timings */
+        --transition-speed: 0.3s;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.8;
+      background-color: var(--primary-dark-bg);
+      color: var(--text-light);
+      overflow-x: hidden;
+      transition: background-color var(--transition-speed) ease-in-out;
+      position: relative; /* For background pattern */
+    }
+
+    /* Subtle background pattern */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(circle at center, rgba(255,255,255,0.02) 1px, transparent 1px);
+        background-size: 20px 20px;
+        z-index: -1; /* Behind everything */
+        opacity: 0.5;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1A1A2E 0%, #0F3460 100%);
+      color: var(--white);
+      padding: 100px 20px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px var(--shadow-dark-2);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 10%, transparent 70%);
+      animation: rotateGradient 20s linear infinite, glowPulse 4s infinite alternate;
+    }
+
+    /* Wave effect for header bottom */
+    header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: var(--primary-dark-bg);
+        border-top-left-radius: 50% 100px;
+        border-top-right-radius: 50% 100px;
+        transform: translateY(50%);
+        z-index: 2;
+    }
+
+    @keyframes rotateGradient {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes glowPulse {
+        0% { filter: brightness(1); }
+        100% { filter: brightness(1.2); }
+    }
+
+    .header-logo-container {
+        margin-bottom: 20px; /* Space between logo and h1 */
+        position: relative;
+        z-index: 1;
+    }
+
+    .header-logo-container img {
+        max-width: 200px; /* Adjust size as needed */
+        height: auto;
+        border-radius: 20%; /* Sedikit melengkung tapi tetap kotak */
+        box-shadow: 0 0 30px rgba(0,255,255,0.8); /* Efek glow pada logo */
+        animation: logoPulse 3s infinite alternate;
+    }
+
+    @keyframes logoPulse {
+        0% { transform: scale(1); filter: brightness(1); }
+        100% { transform: scale(1.05); filter: brightness(1.2); }
+    }
+
+
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 5.5em;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 0 25px rgba(0,255,255,0.8);
+      letter-spacing: 3px;
+    }
+
+    header p {
+      font-size: 1.8em;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+      font-weight: 300;
+      text-shadow: 0 0 12px rgba(0,255,255,0.6);
+      margin-bottom: 40px; /* Tambahan ruang untuk GIF */
+    }
+
+    .header-gif-container {
+        position: relative;
+        z-index: 1;
+        margin-top: 30px; /* Jarak antara GIF dan bagian bawah header */
+    }
+
+    .header-gif-container img {
+        max-width: 90%;
+        border-radius: 15px;
+        box-shadow: 0 0 25px rgba(0,255,255,0.5);
+    }
+
+
+    .container {
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    .section {
+      margin-bottom: 80px;
+      background: var(--secondary-dark-bg);
+      border-radius: 20px;
+      padding: 60px;
+      box-shadow: 0 15px 45px var(--shadow-dark-1);
+      transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out, opacity 0.8s ease-out, transform 0.8s ease-out;
+      opacity: 0;
+      transform: translateY(40px);
+      border: 1px solid rgba(255,255,255,0.08);
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 20px;
+        border: 2px solid transparent;
+        background: linear-gradient(45deg, rgba(0,123,255,0.3), rgba(255,107,0,0.3)) border-box;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity var(--transition-speed) ease-in-out;
+    }
+
+    .section:hover::before {
+        opacity: 1;
+    }
+
+    .section.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .section:hover {
+        transform: translateY(-15px) scale(1.01);
+        box-shadow: 0 20px 60px var(--shadow-dark-2), var(--glow-effect);
+    }
+
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--vibrant-blue);
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 3.8em;
+      position: relative;
+      font-weight: 700;
+      text-shadow: 0 0 20px rgba(0, 123, 255, 0.7);
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 140px;
+      height: 8px;
+      background: var(--vibrant-orange);
+      margin: 25px auto 0;
+      border-radius: 4px;
+      box-shadow: 0 0 15px var(--vibrant-orange);
+    }
+
+    .about-text p {
+        font-size: 1.25em;
+        max-width: 900px;
+        margin: 0 auto;
+        color: var(--text-muted);
+        text-align: center;
+    }
+
+    .about-text p strong {
+        color: var(--vibrant-orange);
+    }
+
+    .why-choose-list ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .why-choose-list li {
+      background: var(--accent-blue);
+      padding: 30px 40px;
+      border-radius: 15px;
+      font-weight: 600;
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      transition: background var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+      box-shadow: 0 8px 25px var(--shadow-dark-1);
+      width: 220px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-choose-list li::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 15px;
+        border: 2px solid transparent;
+        background: linear-gradient(45deg, rgba(255,107,0,0.2), rgba(0,123,255,0.2)) border-box;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity var(--transition-speed) ease;
+    }
+
+    .why-choose-list li:hover::before {
+        opacity: 1;
+    }
+
+    .why-choose-list li:hover {
+        background: rgba(0, 123, 255, 0.25);
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 12px 35px var(--shadow-dark-2), var(--glow-effect);
+    }
+
+    .why-choose-list li i {
+        color: var(--vibrant-orange);
+        font-size: 3.2em;
+        margin-bottom: 10px;
+        text-shadow: 0 0 15px rgba(255, 107, 0, 0.7);
+    }
+
+    .product-list, .script-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+
+    .product-item, .script-item {
+      background: var(--accent-blue);
+      border-radius: 18px;
+      padding: 40px;
+      box-shadow: 0 8px 30px var(--shadow-dark-1);
+      text-align: center;
+      transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background var(--transition-speed) ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 200px;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-item .item-image, .script-item .item-image {
+        max-width: 80px; /* Ukuran gambar logo item */
+        height: auto;
+        margin: 0 auto 15px auto;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.4);
+    }
+    
+    .product-item::before, .script-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 18px;
+        border: 2px solid transparent;
+        background: linear-gradient(45deg, rgba(0,123,255,0.3), rgba(255,107,0,0.3)) border-box;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity var(--transition-speed) ease;
+    }
+
+    .product-item:hover::before, .script-item:hover::before {
+        opacity: 1;
+    }
+
+
+    .product-item:hover, .script-item:hover {
+      transform: translateY(-15px) scale(1.04);
+      box-shadow: 0 18px 50px var(--shadow-dark-2), var(--glow-effect);
+      background: rgba(0, 123, 255, 0.2);
+    }
+
+    .product-item h3, .script-item h3 {
+      color: var(--vibrant-blue);
+      margin-top: 0;
+      font-size: 2.2em;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+
+    .product-item p, .script-item p {
+      font-size: 1.15em;
+      color: var(--text-muted);
+      flex-grow: 1;
+      margin-bottom: 15px;
+    }
+
+    .product-item .price, .script-item .price {
+        font-size: 1.6em;
+        font-weight: 700;
+        color: var(--vibrant-orange);
+        margin-top: auto;
+        margin-bottom: 0;
+        text-shadow: 0 0 12px rgba(255, 107, 0, 0.7);
+    }
+
+    /* Click Animation CSS */
+    .product-item.clicked,
+    .script-item.clicked,
+    .cta-link.clicked,
+    .modal-buy-button.clicked {
+        animation: clickEffect var(--transition-speed) ease-out;
+    }
+
+    @keyframes clickEffect {
+        0% { transform: scale(1); box-shadow: inherit; }
+        50% { transform: scale(0.95); box-shadow: 0 5px 20px rgba(0,0,0,0.5), var(--orange-glow); }
+        100% { transform: scale(1); }
+    }
+
+    .cta {
+      background: linear-gradient(45deg, var(--vibrant-orange) 0%, #ff8c00 100%);
+      color: var(--white);
+      padding: 70px;
+      text-align: center;
+      border-radius: 25px;
+      font-weight: bold;
+      box-shadow: 0 15px 40px rgba(255, 107, 0, 0.7);
+      transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+      border: 3px solid rgba(255,255,255,0.7);
+      position: relative;
+      overflow: hidden;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      z-index: 1;
+    }
+
+    .cta::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+        animation: ctaLightPulse 3s infinite alternate;
+        pointer-events: none;
+    }
+
+    @keyframes ctaLightPulse {
+        0% { transform: scale(1); opacity: 0.9; }
+        100% { transform: scale(1.06); opacity: 0.6; }
+    }
+
+    .cta:hover {
+        transform: scale(1.03);
+        box-shadow: 0 20px 50px rgba(255, 107, 0, 0.9), var(--orange-glow);
+    }
+
+    .cta p {
+        font-size: 2.8em;
+        margin-bottom: 35px;
+        font-weight: 700;
+        text-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    }
+
+    a.cta-link {
+      color: var(--white);
+      text-decoration: none;
+      background-color: var(--accent-blue);
+      padding: 22px 45px;
+      border-radius: 50px;
+      font-size: 1.4em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+
+    a.cta-link:hover {
+      background-color: var(--vibrant-blue);
+      transform: translateY(-7px) scale(1.03);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.6), var(--glow-effect);
+    }
+
+    a.cta-link i {
+        font-size: 1.5em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--secondary-dark-bg);
+      color: var(--text-muted);
+      margin-top: 100px;
+      border-top: 6px solid var(--vibrant-orange);
+      box-shadow: 0 -5px 20px var(--shadow-dark-1);
+    }
+
+    .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 50px;
+        max-width: 1100px;
+        margin: 0 auto 50px auto;
+        text-align: left;
+    }
+
+    .footer-section {
+        flex: 1;
+        min-width: 300px;
+        padding: 20px;
+    }
+
+    .footer-section h4 {
+        color: var(--vibrant-orange);
+        font-size: 1.4em;
+        margin-bottom: 25px;
+        font-weight: 700;
+        text-shadow: 0 0 8px rgba(255, 107, 0, 0.4);
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 15px;
+    }
+
+    .footer-section ul li a {
+        color: var(--text-light);
+        text-decoration: none;
+        transition: color var(--transition-speed) ease, text-shadow var(--transition-speed) ease;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1.1em;
+    }
+
+    .footer-section ul li a:hover {
+        color: var(--vibrant-blue);
+        text-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
+    }
+
+    .footer-section ul li i {
+        font-size: 1.3em;
+        color: var(--vibrant-blue);
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.15);
+        padding-top: 30px;
+        font-size: 1em;
+        color: rgba(255,255,255,0.7);
+    }
+
+    /* Music controls */
+    .music-controls {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 1001;
+        background-color: rgba(26, 26, 46, 0.8);
+        padding: 10px 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid rgba(0, 123, 255, 0.3);
+        color: var(--text-light);
+    }
+
+    .music-controls button {
+        background: none;
+        border: none;
+        color: var(--vibrant-blue);
+        font-size: 1.5em;
+        cursor: pointer;
+        transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    }
+
+    .music-controls button:hover {
+        color: var(--vibrant-orange);
+        transform: scale(1.1);
+    }
+
+    /* Chatbot Floating Button */
+    .chatbot-fab {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1001;
+        background-color: var(--vibrant-orange);
+        color: var(--white);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2em;
+        box-shadow: 0 8px 25px rgba(255, 107, 0, 0.6);
+        cursor: pointer;
+        transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        border: 2px solid var(--white);
+    }
+
+    .chatbot-fab:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 12px 35px rgba(255, 107, 0, 0.8), var(--orange-glow);
+    }
+
+
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.85);
+        animation: fadeIn 0.4s ease-out;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(8px);
+    }
+
+    .modal-content {
+        background-color: var(--secondary-dark-bg);
+        margin: auto;
+        padding: 45px;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 700px;
+        box-shadow: 0 20px 50px var(--shadow-dark-2), var(--glow-effect);
+        animation: slideIn 0.4s ease-out;
+        position: relative;
+        text-align: center;
+        border: 3px solid var(--vibrant-blue);
+        color: var(--text-light);
+    }
+
+    .modal-content .main-image {
+        max-width: 90%;
+        height: auto;
+        border-radius: 12px;
+        margin-bottom: 25px;
+        border: 3px solid var(--vibrant-orange);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .modal-content h3 {
+        color: var(--vibrant-orange);
+        font-size: 2.5em;
+        margin-bottom: 25px;
+        text-shadow: 0 0 12px rgba(255, 107, 0, 0.5);
+    }
+
+    .modal-content p {
+        font-size: 1.3em;
+        color: var(--text-muted);
+        margin-bottom: 30px;
+    }
+
+    .modal-content .price {
+        font-size: 1.8em;
+        font-weight: 700;
+        color: var(--vibrant-blue);
+        margin-bottom: 20px;
+        text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+
+    .payment-options {
+        display: flex;
+        flex-direction: column; /* Stack payment methods vertically */
+        align-items: center;
+        gap: 20px; /* Space between payment options */
+        margin-top: 30px; /* Space above payment methods */
+        margin-bottom: 30px; /* Space below payment methods */
+    }
+
+    .payment-option-item {
+        background-color: var(--accent-blue);
+        border-radius: 10px;
+        padding: 15px 25px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        width: 80%; /* Control width of each payment option */
+        max-width: 350px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        border: 1px solid rgba(255,255,255,0.1);
+        cursor: pointer; /* Indicate clickable */
+    }
+
+    .payment-option-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4), var(--glow-effect);
+        background-color: rgba(0, 123, 255, 0.1);
+    }
+
+    .payment-option-item img {
+        max-width: 80px; /* Size of payment logo */
+        height: auto;
+        border-radius: 5px; /* Slight border radius for logos */
+        border: none; /* Remove previous modal img borders */
+        box-shadow: none; /* Remove previous modal img shadows */
+        margin-bottom: 0; /* Remove previous modal img margin */
+    }
+
+    .payment-option-item .details {
+        text-align: left;
+        flex-grow: 1;
+    }
+
+    .payment-option-item .details h4 {
+        color: var(--vibrant-orange);
+        margin: 0 0 5px 0;
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+
+    .payment-option-item .details p {
+        color: var(--text-muted);
+        margin: 0;
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+
+    .modal-buy-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background-color: var(--vibrant-blue);
+        color: var(--white);
+        padding: 18px 35px;
+        border-radius: 45px;
+        text-decoration: none;
+        font-size: 1.3em;
+        font-weight: 600;
+        transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        cursor: pointer;
+        border: none;
+        margin-top: 30px;
+    }
+
+    .modal-buy-button:hover {
+        background-color: #0056b3;
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5), var(--glow-effect);
+    }
+
+    .close-button {
+        color: #ccc;
+        position: absolute;
+        top: 25px;
+        right: 35px;
+        font-size: 45px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color var(--transition-speed) ease;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+        color: var(--vibrant-orange);
+        text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+        from { transform: translateY(-100px) scale(0.9); opacity: 0; }
+        to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    /* Responsive Design (adjusted) */
+    @media (max-width: 1200px) {
+        .container {
+            padding: 0 20px;
+        }
+        .section {
+            max-width: 100%;
+            padding: 50px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .header-logo-container img { max-width: 160px; }
+        header h1 { font-size: 4.5em; }
+        header p { font-size: 1.5em; }
+        h2 { font-size: 3.5em; margin-bottom: 40px; }
+        .section { padding: 40px; margin-bottom: 60px; }
+        .why-choose-list li { width: 200px; padding: 25px 30px; }
+        .why-choose-list li i { font-size: 2.8em; }
+        .product-list, .script-list { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .product-item, .script-item { padding: 35px; min-height: 180px; }
+        .product-item h3, .script-item h3 { font-size: 2em; }
+        .product-item .price, .script-item .price { font-size: 1.5em; }
+        .cta { padding: 50px; }
+        .cta p { font-size: 2.2em; }
+        a.cta-link { font-size: 1.3em; padding: 18px 35px; }
+        .footer-content { gap: 30px; }
+        .footer-section { min-width: 250px; }
+        .modal-content { padding: 40px; }
+        .modal-content h3 { font-size: 2.2em; }
+        .modal-content p { font-size: 1.2em; }
+        .modal-content .price { font-size: 1.6em; }
+        .payment-option-item { width: 90%; }
+        .modal-buy-button { font-size: 1.2em; padding: 15px 30px; }
+        .chatbot-fab { width: 50px; height: 50px; font-size: 1.8em; }
+    }
+
+    @media (max-width: 768px) {
+      .header-logo-container img { max-width: 120px; margin-bottom: 15px;}
+      header h1 { font-size: 3.8em; }
+      header p { font-size: 1.3em; }
+      header::after { height: 80px; transform: translateY(50%); }
+
+      h2 { font-size: 3em; margin-bottom: 30px; }
+      h2::after { width: 90px; height: 6px; }
+
+      .section {
+        padding: 30px;
+        margin-bottom: 40px;
+        border-radius: 15px;
+      }
+      .about-text p { font-size: 1.1em; }
+      .why-choose-list ul { flex-direction: column; align-items: center; gap: 25px; }
+      .why-choose-list li { width: 80%; max-width: 300px; padding: 20px 25px; }
+      .why-choose-list li i { font-size: 2.5em; }
+
+      .product-list, .script-list { grid-template-columns: 1fr; gap: 25px; }
+      .product-item, .script-item { padding: 30px; min-height: 160px; }
+      .product-item h3, .script-item h3 { font-size: 1.8em; }
+      .product-item p, .script-item p { font-size: 1.05em; }
+      .product-item .price, .script-item .price { font-size: 1.4em; }
+
+      .cta { padding: 40px; border-radius: 20px; }
+      .cta p { font-size: 1.8em; margin-bottom: 25px; }
+      a.cta-link { padding: 15px 30px; font-size: 1.1em; }
+      a.cta-link i { font-size: 1.3em; }
+
+      footer { padding: 40px 20px; margin-top: 60px; }
+      .footer-content { flex-direction: column; text-align: center; gap: 20px; }
+      .footer-section { min-width: unset; width: 100%; }
+      .footer-section ul { align-items: center; }
+
+      .modal-content { padding: 25px; border-radius: 15px; max-width: 95%; }
+      .modal-content .main-image { max-width: 95%; }
+      .modal-content h3 { font-size: 2em; }
+      .modal-content p { font-size: 1.1em; }
+      .modal-content .price { font-size: 1.5em; }
+      .payment-option-item { width: 95%; padding: 10px 20px; gap: 10px; }
+      .payment-option-item img { max-width: 60px; }
+      .payment-option-item .details h4 { font-size: 1.1em; }
+      .payment-option-item .details p { font-size: 0.85em; }
+      .modal-buy-button { padding: 12px 25px; font-size: 1.1em; }
+      .close-button { font-size: 35px; top: 15px; right: 25px; }
+      .chatbot-fab { width: 45px; height: 45px; font-size: 1.6em; }
+      .header-gif-container img { max-width: 100%; }
+    }
+
+    @media (max-width: 480px) {
+      .header-logo-container img { max-width: 100px; margin-bottom: 10px;}
+      header h1 { font-size: 3.2em; }
+      header p { font-size: 1.1em; }
+      h2 { font-size: 2.5em; }
+      h2::after { width: 70px; height: 5px; }
+      .section { padding: 20px; }
+      .about-text p { font-size: 1em; }
+      .cta p { font-size: 1.5em; }
+      a.cta-link { font-size: 1em; padding: 12px 25px; }
+      .modal-content h3 { font-size: 1.8em; }
+      .modal-content p { font-size: 1em; }
+      .modal-content .price { font-size: 1.3em; }
+      .payment-option-item { max-width: unset; width: 100%; }
+      .modal-buy-button { font-size: 1em; padding: 10px 20px; }
+      .chatbot-fab { font-size: 1.4em; }
+    }
+  </style>
+</head>
+<body>
+  <audio id="background-music" src="https://files.catbox.moe/f2nuok.mp3" autoplay loop volume="0.3"></audio>
+
+  <div class="music-controls">
+    <button id="toggle-music-button"><i class="fas fa-volume-up"></i></button>
+  </div>
+
+  <a href="https://wa.me/6283121495921?text=Halo%20DIKA%20MARKET%2C%20saya%20memiliki%20pertanyaan." class="chatbot-fab" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <header>
+    <div class="header-logo-container">
+        <img src="https://files.catbox.moe/0xcy03.jpg" alt="DIKA MARKET Logo">
+    </div>
+    <h1>DIKA MARKET</h1>
+    <p>Solusi Hosting Bot & Script Digital Terpercaya Anda</p>
+    <div class="header-gif-container">
+        <img src="https://files.catbox.moe/ubzhag.gif" alt="Digital Bot Animation">
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="section about-text">
+      <h2><i class="fas fa-info-circle"></i> Tentang DIKA MARKET</h2>
+      <p>DIKA MARKET adalah platform terdepan yang menyediakan **Panel Hosting Khusus Bot** dan berbagai **Script Digital Inovatif**. Kami berkomitmen untuk memberikan performa terbaik, harga kompetitif, serta dukungan penuh untuk kebutuhan otomatisasi dan pengembangan digital Anda. Percayakan kebutuhan bot Anda pada kami!</p>
+    </section>
+
+    <section class="section why-choose-list">
+      <h2><i class="fas fa-rocket"></i> Kenapa Pilih DIKA MARKET?</h2>
+      <ul>
+        <li><i class="fas fa-microchip"></i> Performa Tinggi & Stabil</li>
+        <li><i class="fas fa-dollar-sign"></i> Harga Paling Terjangkau</li>
+        <li><i class="fas fa-headset"></i> Layanan Dukungan 24/7</li>
+        <li><i class="fas fa-code-branch"></i> Solusi Custom Bot & Script</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2><i class="fas fa-server"></i> Panel Hosting Bot</h2>
+      <div class="product-list">
+        <div class="product-item" data-product-id="ram1gb">
+          <img src="https://files.catbox.moe/6m7ff8.jpg" alt="Panel Hosting Icon" class="item-image">
+          <h3>1 GB RAM</h3>
+          <p>Cocok untuk bot ringan atau pengembangan awal.</p>
+          <p class="price">Harga: 1K / Bulan</p>
+        </div>
+        <div class="product-item" data-product-id="ram2gb">
+          <img src="https://files.catbox.moe/6m7ff8.jpg" alt="Panel Hosting Icon" class="item-image">
+          <h3>2 GB RAM</h3>
+          <p>Performa optimal untuk bot dengan fitur menengah.</p>
+          <p class="price">Harga: 2K / Bulan</p>
+        </div>
+        <div class="product-item" data-product-id="ram3gb">
+          <img src="https://files.catbox.moe/6m7ff8.jpg" alt="Panel Hosting Icon" class="item-image">
+          <h3>3 GB RAM</h3>
+          <p>Untuk bot yang lebih kompleks dan trafik sedang.</p>
+          <p class="price">Harga: 3K / Bulan</p>
+        </div>
+        <div class="product-item" data-product-id="ram4gb">
+          <img src="https://files.catbox.moe/6m7ff8.jpg" alt="Panel Hosting Icon" class="item-image">
+          <h3>4 GB RAM</h3>
+          <p>Ideal untuk bot otomatisasi skala besar.</p>
+          <p class="price">Harga: 4K / Bulan</p>
+        </div>
+        <div class="product-item" data-product-id="ram5gb">
+          <img src="https://files.catbox.moe/6m7ff8.jpg" alt="Panel Hosting Icon" class="item-image">
+          <h3>5 GB RAM</h3>
+          <p>Daya maksimum untuk bot intensif dan performa puncak.</p>
+          <p class="price">Harga: 5K / Bulan</p>
+        </div>
+        <div class="product-item" data-product-id="ramunlimited">
+          <img src="https://files.catbox.moe/6m7ff8.jpg" alt="Panel Hosting Icon" class="item-image">
+          <h3>UNLIMITED RAM</h3>
+          <p>Bebas khawatir dengan sumber daya tak terbatas.</p>
+          <p class="price">Harga: 9K / Bulan</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2><i class="fas fa-file-code"></i> List Script Unggulan</h2>
+      <div class="script-list">
+        <div class="script-item" data-script-id="ansain-wa">
+          <h3>ANSAIN MARKET V2 VIA WHATSAPP</h3>
+          <p>Bot market otomatis via WhatsApp dengan Button Message.</p>
+          <p class="price">Harga: 20.000</p>
+        </div>
+        <div class="script-item" data-script-id="ansain-tele">
+          <h3>ANSAIN MARKET V2 VIA TELEGRAM</h3>
+          <p>Layanan otomatis via Telegram dengan fitur E-Wallet, Game, PLN, dll.</p>
+          <p class="price">Harga: 15.000</p>
+        </div>
+        <div class="script-item" data-script-id="ansain-bug">
+          <h3>ANSAIN X BUG VIA WHATSAPP</h3>
+          <p>Bot khusus Bug WhatsApp, dirancang oleh Dika.</p>
+          <p class="price">Harga: 25.000</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta">
+      <p>Siap tingkatkan bisnis digital Anda?</p>
+      <a href="https://wa.me/6283121495921?text=Halo%20DIKA%20MARKET%2C%20saya%20tertarik%20dengan%20layanan%20Anda." class="cta-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat via WhatsApp</a>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Tentang Kami</h4>
+        <ul>
+          <li><a href="#"><i class="fas fa-info-circle"></i> Kebijakan Privasi</a></li>
+          <li><a href="#"><i class="fas fa-shield-alt"></i> Syarat & Ketentuan</a></li>
+          <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Hubungi DIKA MARKET</h4>
+        <ul>
+          <li><a href="mailto:dikasipalingcihuy@gmail.com"><i class="fas fa-envelope"></i> dikasipalingcihuy@gmail.com</a></li>
+          <li><a href="https://wa.me/6283121495921?text=Halo%20Dika%20Market%2C%20saya%20ingin%20bertanya." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp: +62 831-2149-5921</a></li>
+          </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Ikuti Kami</h4>
+        <ul>
+          <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 DIKA MARKET. Semua Hak Dilindungi.</p>
+    </div>
+  </footer>
+
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <img id="modalMainImage" class="main-image" src="" alt="Product/Script Image">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+      <p class="price" id="modalPrice"></p>
+
+      <div class="payment-options">
+        <h4>Pilih Metode Pembayaran:</h4>
+        <div class="payment-option-item" data-payment-method="qris">
+            <img src="https://files.catbox.moe/0k39qu.jpg" alt="QRIS Logo">
+            <div class="details">
+                <h4>QRIS</h4>
+                <p>Klik untuk scan QRIS dan selesaikan pembayaran.</p>
+            </div>
+        </div>
+        <div class="payment-option-item" data-payment-method="dana">
+            <img src="dana_logo.png" alt="DANA Logo">
+            <div class="details">
+                <h4>DANA</h4>
+                <p>Transfer via aplikasi DANA ke **083121495921**.</p>
+            </div>
+        </div>
+      </div>
+
+      <a id="modalBuyButton" href="#" class="modal-buy-button" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat untuk Beli</a>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // --- Music Controls ---
+      const backgroundMusic = document.getElementById('background-music');
+      const toggleMusicButton = document.getElementById('toggle-music-button');
+      let isMusicPlaying = true; // Assume autoplay works initially
+
+      // Try to play music automatically (might be blocked by browser)
+      backgroundMusic.play().catch(error => {
+        console.log('Autoplay was prevented:', error);
+        isMusicPlaying = false; // Set to false if autoplay failed
+        toggleMusicButton.innerHTML = '<i class="fas fa-volume-mute"></i>'; // Show mute icon
+      });
+
+      toggleMusicButton.addEventListener('click', function() {
+        if (isMusicPlaying) {
+          backgroundMusic.pause();
+          toggleMusicButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        } else {
+          backgroundMusic.play();
+          toggleMusicButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+        }
+        isMusicPlaying = !isMusicPlaying;
+      });
+
+
+      // --- Click Animations ---
+      const clickableItems = document.querySelectorAll('.product-item, .script-item, .cta-link');
+
+      function addAndRemoveAnimationClass(element, className) {
+        element.classList.add(className);
+        element.addEventListener('animationend', function() {
+          element.classList.remove(className);
+        }, { once: true });
+      }
+
+      clickableItems.forEach(item => {
+        item.addEventListener('click', function() {
+          addAndRemoveAnimationClass(this, 'clicked');
+        });
+      });
+
+      // --- Scroll-Reveal Animations ---
+      const sections = document.querySelectorAll('.section');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+
+      // --- Product/Script Modal Functionality ---
+      const productItems = document.querySelectorAll('.product-item');
+      const scriptItems = document.querySelectorAll('.script-item');
+      const modal = document.getElementById('productModal');
+      const closeButton = document.querySelector('.close-button');
+      const modalMainImage = document.getElementById('modalMainImage');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDescription = document.getElementById('modalDescription');
+      const modalPrice = document.getElementById('modalPrice');
+      const modalBuyButton = document.getElementById('modalBuyButton');
+      const paymentOptionsContainer = modal.querySelector('.payment-options');
+
+      // Admin WhatsApp number
+      const adminWhatsApp = '6283121495921';
+
+      let currentProductData = {};
+
+      // Data for products (hosting plans)
+      const productData = {
+        "ram1gb": {
+          title: "1 GB RAM Hosting",
+          description: "Cocok untuk bot ringan atau pengembangan awal.",
+          price: "Harga: 1K / Bulan",
+          mainImage: "https://files.catbox.moe/6m7ff8.jpg", /* Panel Logo */
+          whatsappText: "Halo%20DIKA%20MARKET%2C%20saya%20tertarik%20dengan%20Panel%20Hosting%201%20GB%20RAM%20(Harga%3A%201K%20%2F%20Bulan)."
+        },
+        "ram2gb": {
+          title: "2 GB RAM Hosting",
+          description: "Performa optimal untuk bot dengan fitur menengah.",
+          price: "Harga: 2K / Bulan",
+          mainImage: "https://files.catbox.moe/6m7ff8.jpg", /* Panel Logo */
+          whatsappText: "Halo%20DIKA%20MARKET%2C%20saya%20tertarik%20dengan%20Panel%20Hosting%202%20GB%20RAM%20(Harga%3A%202K%20%2F%20Bulan)."
+        },
+        "ram3gb": {
+          title: "3 GB RAM Hosting",
+          description: "Untuk bot yang lebih kompleks dan trafik sedang.",
+          price: "Harga: 3K / Bulan",
+          mainImage: "https://files.catbox.moe/6m7ff8.jpg", /* Panel Logo */
+          whatsappText: "Halo%20DIKA%20MARKET%2C%20saya%20tertarik%20dengan%20Panel%20Hosting%203%20GB%20RAM%20(Harga%3A%203K%20%2F%20Bulan)."
+        },
+        "ram4gb": {
+          title: "4 GB RAM Hosting",
+          description: "Ideal untuk bot otomatisasi skala besar.",
+          price: "Harga: 4K / Bulan",
+          mainImage: "https://files.catbox.moe/6m7ff8.jpg", /* Panel Logo */
+          whatsappText: "Halo%20DIKA%20MARKET%2C%20saya%20tertarik%20dengan%20Panel%20Hosting%204%20GB%20RAM%20(Harga%3A%204K%20%2F%20Bulan)."
+        },
+        "ram5gb": {
+          title: "5 GB RAM Hosting",
+          description: "Daya maksimum untuk bot intensif dan performa puncak.",
+          price: "Harga: 5K / Bulan",
+          mainImage: "https://files.catbox.moe/6m7ff8.jpg", /* Panel Logo */
+          whatsappText: "Halo%20DIKA%20MARKET%2C%20saya%20tertarik%20dengan%20Panel%20Hosting%205%20GB%20RAM%20(Harga%3A%205K%20%2F%20Bulan)."
+        },
+        "ramunlimited": {
+          title: "UNLIMITED RAM Hosting",
+          description: "Bebas khawatir dengan sumber daya tak terbatas.",
+          price: "Harga: 9K / Bulan",
+          mainImage: "https://files.catbox.moe/6m7ff8.jpg", /* Panel Logo */
+          whatsappText: "Halo%20DIKA%20MARKET%2C%20saya%20tertarik%20dengan%20Panel%20Hosting%20UNLIMITED%20RAM%20(Harga%3A%209K%20%2F%20Bulan)."
+        }
+      };
+
+      // Data for scripts
+      const scriptData = {
+        "ansain-wa": {
+          title: "ANSAIN MARKET V2 VIA WHATSAPP",
+          description: "BOT ANSAIN MARKET ADALAH BOT MARKET YANG DI RANCANG UNTUK BERJUALAN NOMOR KOSONG OTOMATIS DAN TIDAK PERLU CAPE-CAPE KETIK KARNA SUDAH PAKAI BUTTON MESSAGE.",
+          price: "Harga: 20.000",
+          mainImage: "https://files.catbox.moe/ax4vzq.webp", /* ANSAIN 1 */
+          whatsappText: "Halo%20DIKA%20MARKET%2C%20saya%20tertarik%20dengan%20script%20ANSAIN%20MARKET%20V2%20VIA%20WHATSAPP%20(Harga%3A%20Rp20.000)."
+        },
+        "ansain-tele": {
+          title: "ANSAIN MARKET V2 VIA TELEGRAM",
+          description: "BOT ANSAIN MARKET V2 VIA TELEGRAM ADALAH BOT LAYANAN OTOMATIS SEPERTI VIA WA TAPI INI ADA TAMBAHAN SEPERTI TOP UP ALL EWALLET%2C TOP UP GAME%2C PLN%2C PULSA%20DAN%20LAIN-LAIN.",
+          price: "Harga: 15.000",
+          mainImage: "https://files.catbox.moe/wkcfhd.jpg", /* ANSAIN 3 */
+          whatsappText: "Halo%20DIKA%20MARKET%2C%20saya%20tertarik%20dengan%20script%20ANSAIN%20MARKET%20V2%20VIA%20TELEGRAM%20(Harga%3A%20Rp15.000)."
+        },
+        "ansain-bug": {
+          title: "ANSAIN X BUG VIA WHATSAPP",
+          description: "BOT BUG YANG DI RANCANG OLEH DIKA.",
+          price: "Harga: 25.000",
+          mainImage: "https://files.catbox.moe/jfue8x.jpg", /* ANSAIN 2 */
+          whatsappText: "Halo%20DIKA%20MARKET%2C%20saya%20tertarik%20dengan%20script%20ANSAIN%20X%20BUG%20VIA%20WHATSAPP%20(Harga%3A%20Rp25.000)."
+        }
+      };
+
+      // Configuration for different payment methods
+      const paymentOptionsConfig = {
+        "qris": {
+            logo: "https://files.catbox.moe/0k39qu.jpg",
+            name: "QRIS",
+            description: "Klik untuk scan QRIS dan selesaikan pembayaran.",
+            redirectUrl: "https://files.catbox.moe/0k39qu.jpg", // Direct URL to QRIS image
+            whatsappSuffix: "%20(Pembayaran%20melalui%20QRIS)."
+        },
+        "dana": {
+            logo: "dana_logo.png", // Masih placeholder, bisa ganti URL jika ada
+            name: "DANA",
+            description: "Transfer via aplikasi DANA ke **083121495921**.",
+            whatsappSuffix: "%20(Pembayaran%20melalui%20DANA%20ke%20083121495921)."
+        }
+      };
+
+      function openModalWithData(data) {
+        currentProductData = data;
+
+        modalMainImage.src = data.mainImage;
+        modalMainImage.alt = data.title;
+        modalTitle.textContent = data.title;
+        modalDescription.textContent = decodeURIComponent(data.description.replace(/%2C/g, ',').replace(/%20/g, ' '));
+        modalPrice.textContent = data.price;
+
+        paymentOptionsContainer.innerHTML = '<h4>Pilih Metode Pembayaran:</h4>';
+
+        for (const methodKey in paymentOptionsConfig) {
+            const config = paymentOptionsConfig[methodKey];
+            const itemDiv = document.createElement('div');
+            itemDiv.classList.add('payment-option-item');
+            itemDiv.dataset.paymentMethod = methodKey;
+
+            itemDiv.innerHTML = `
+                <img src="${config.logo}" alt="${config.name} Logo">
+                <div class="details">
+                    <h4>${config.name}</h4>
+                    <p>${config.description}</p>
+                </div>
+            `;
+            paymentOptionsContainer.appendChild(itemDiv);
+
+            itemDiv.addEventListener('click', function() {
+                const selectedMethod = this.dataset.paymentMethod;
+                const selectedConfig = paymentOptionsConfig[selectedMethod];
+                
+                addAndRemoveAnimationClass(this, 'clicked');
+
+                if (selectedMethod === 'qris' && selectedConfig.redirectUrl) {
+                    // Redirect directly to QRIS image URL
+                    window.open(selectedConfig.redirectUrl, '_blank');
+                    modal.style.display = 'none'; // Close modal after redirection
+                } else {
+                    const updatedWhatsappText = currentProductData.whatsappText + selectedConfig.whatsappSuffix;
+                    window.open(`https://wa.me/${adminWhatsApp}?text=${updatedWhatsappText}`, '_blank');
+                    modal.style.display = 'none';
+                }
+            });
+        }
+
+        modal.style.display = 'flex';
+        addAndRemoveAnimationClass(modal.querySelector('.modal-content'), 'clicked');
+      }
+
+      productItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const productId = this.dataset.productId;
+          const data = productData[productId];
+          if (data) {
+            openModalWithData(data);
+          }
+        });
+      });
+
+      scriptItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const scriptId = this.dataset.scriptId;
+          const data = scriptData[scriptId];
+          if (data) {
+            openModalWithData(data);
+          }
+        });
+      });
+
+      closeButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+
+      window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+          modal.style.display = 'none';
+        }
+      });
+      
+      modalBuyButton.addEventListener('click', function() {
+        addAndRemoveAnimationClass(this, 'clicked');
+      });
+
+      // Set up the chatbot FAB
+      document.querySelector('.chatbot-fab').addEventListener('click', function() {
+        addAndRemoveAnimationClass(this, 'clicked');
+      });
+
+    });
+  </script>
+</body>
+</html>
